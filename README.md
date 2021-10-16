@@ -13,4 +13,5 @@ const float const_target_temp = 25;
 
 # Положение заслонки
 // kPanasonicAcSwingVAuto, kPanasonicAcSwingVHighest, kPanasonicAcSwingVHigh, kPanasonicAcSwingVMiddle, kPanasonicAcSwingVLow, kPanasonicAcSwingVLowest
+
 char swing = kPanasonicAcSwingVLow;
