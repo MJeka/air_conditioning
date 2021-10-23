@@ -2,7 +2,7 @@
 ESP8266 Wemos D1 mini - Управление кондиционером Panasonic
 
 # Настраиваем пин, на котором у нас IR LED
-const uint16_t kIrLed = 4;  // Wemos D1 mini - D1 pin. (ESP8266 GPIO pin to use. Recommended: 0 (D3).)
+const uint16_t kIrLed = 4;  // Wemos D1 mini - D2 pin. (ESP8266 GPIO pin to use. Recommended: 0 (D3).)
 
 # Минимальная температура, смотрим на пульте
 const float const_min = 16;
