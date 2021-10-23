@@ -4,7 +4,7 @@
 #include "ir_Panasonic.h"
 
 
-const uint16_t kIrLed = 4;  // Wemos D1 mini - D1 pin. (ESP8266 GPIO pin to use. Recommended: 0 (D3).)
+const uint16_t kIrLed = 4;  // Wemos D1 mini - D2 pin. (ESP8266 GPIO pin to use. Recommended: 0 (D3).)
 
 const float const_min = 16;
 const float const_max = 30;
