@@ -96,7 +96,7 @@ text_sensor:
     bssid:
       name: ${upper_board_name}_BSSID
     mac_address:
-      name: ${board_name}_MAC
+      name: ${upper_board_name}_MAC
 
   - platform: template
     name: ${upper_board_name}_Uptime
