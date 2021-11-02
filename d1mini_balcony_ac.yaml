@@ -52,7 +52,7 @@ binary_sensor:
     
   - platform: gpio
     pin:
-      number: GPIO5		# D1
+      number: GPIO5   #D1
       mode: INPUT
     name: ${upper_board_name}_Work_Sensor
     id: power
