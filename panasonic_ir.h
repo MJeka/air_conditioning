@@ -55,8 +55,8 @@ class PanasonicAC : public Component, public Climate {
       ac.begin();
       ac.on();
       ac.setTemp(this->target_temperature);
-      ac.setSwingVertical(swing);
-      ac.setSwingHorizontal(kPanasonicAcSwingHAuto);
+      ac.setSwingVertical(vswing);
+      ac.setSwingHorizontal(hswing);
 
       if (this->mode == CLIMATE_MODE_OFF) {
         ac.off();
