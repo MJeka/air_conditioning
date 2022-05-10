@@ -10,7 +10,7 @@ const float const_min = 16;
 const float const_max = 30;
 const float const_target_temp = 25;
 
-// Добавил положение заслонки
+// Добавил положение заслонки, записываем жестко, чтобы не менялось
 // kPanasonicAcSwingVAuto, kPanasonicAcSwingVHighest, kPanasonicAcSwingVHigh, kPanasonicAcSwingVMiddle, kPanasonicAcSwingVLow, kPanasonicAcSwingVLowest
 char swing = kPanasonicAcSwingVLow;
 
@@ -116,14 +116,16 @@ class PanasonicAC : public Component, public Climate {
       });
       traits.set_supported_swing_modes({
           climate::CLIMATE_SWING_OFF,
+          climate::CLIMATE_SWING_BOTH,
           climate::CLIMATE_SWING_VERTICAL,
+          climate::CLIMATE_SWING_HORIZONTAL,
       });
 	  
 	  // Preset
 	  traits.set_supported_presets({
           climate::CLIMATE_PRESET_NONE,
           climate::CLIMATE_PRESET_SLEEP,
-		  climate::CLIMATE_PRESET_BOOST
+          climate::CLIMATE_PRESET_BOOST
       });
 	  	  
 	  traits.set_supports_current_temperature(true);
