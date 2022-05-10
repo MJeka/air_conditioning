@@ -15,3 +15,45 @@ const float const_target_temp = 25;
 // kPanasonicAcSwingVAuto, kPanasonicAcSwingVHighest, kPanasonicAcSwingVHigh, kPanasonicAcSwingVMiddle, kPanasonicAcSwingVLow, kPanasonicAcSwingVLowest
 
 char swing = kPanasonicAcSwingVLow;
+
+# Пример автоматизации Home Assistant
+```
+automation:
+  - id: "Балкон A/C: включение кондиционера"
+    alias: balconyac_on
+   initial_state: true
+    trigger:
+      - platform: state
+        entity_id: sensor.lr_remote_control_action
+        to: 1_double
+    condition:
+      - condition: state
+        entity_id: binary_sensor.bn_ac_control_general
+        state: "on"
+    action:
+      - choose:
+          - conditions:
+              ## Кондиционер выключен
+              - condition: state
+                entity_id: binary_sensor.balconyac_work_sensor
+                state: "off"
+            sequence:
+              - service: climate.set_temperature
+                data:
+                  temperature: 25
+                  hvac_mode: heat
+                target:
+                  entity_id: climate.balconyac
+              - delay: 2
+              - service: climate.set_preset_mode
+                target:
+                  entity_id: climate.balconyac
+                data:
+                  preset_mode: none
+        default:
+          - service: climate.turn_off
+            target:
+              entity_id: climate.balconyac
+    mode: queued
+    max: 5
+```
