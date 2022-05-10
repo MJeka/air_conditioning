@@ -12,7 +12,10 @@ const float const_target_temp = 25;
 
 // Добавил положение заслонки, записываем жестко, чтобы не менялось
 // kPanasonicAcSwingVAuto, kPanasonicAcSwingVHighest, kPanasonicAcSwingVHigh, kPanasonicAcSwingVMiddle, kPanasonicAcSwingVLow, kPanasonicAcSwingVLowest
-char swing = kPanasonicAcSwingVLow;
+// kPanasonicAcSwingHAuto, kPanasonicAcSwingHFullLeft, kPanasonicAcSwingHFullRight, kPanasonicAcSwingHLeft, kPanasonicAcSwingHMiddle, kPanasonicAcSwingHRight
+char vswing = kPanasonicAcSwingVLow;
+char hswing = kPanasonicAcSwingHAuto;
+
 
 IRPanasonicAc ac(kIrLed);
 
@@ -53,6 +56,7 @@ class PanasonicAC : public Component, public Climate {
       ac.on();
       ac.setTemp(this->target_temperature);
       ac.setSwingVertical(swing);
+      ac.setSwingHorizontal(kPanasonicAcSwingHAuto);
 
       if (this->mode == CLIMATE_MODE_OFF) {
         ac.off();
